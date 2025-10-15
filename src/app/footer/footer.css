@@ -1,0 +1,26 @@
+/* Inicio del navbar */
+footer {
+  background: #1e6cd3;
+  padding: 1rem 1rem;
+  text-align: center;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+/*Findel css del footer*/
