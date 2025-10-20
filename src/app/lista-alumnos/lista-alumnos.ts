@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./lista-alumnos.css']
 })
 export class ListaAlumnos {
-  @Input() alumnos: {nombre: string, apellido: string}[] = [];
+  @Input() alumnos: {nombre: string, apellido: string, email: string}[] = [];
 }

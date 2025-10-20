@@ -183,7 +183,7 @@
 </style>
 
 <app-navbar (alumnoAgregado)="agregarAlumno($event)"></app-navbar>
-<main class="main" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+<main class="main-contenedor">
   <app-abm-alumnos (alumnoAgregado)="agregarAlumno($event)"></app-abm-alumnos>
   <app-lista-alumnos ngSkipHydration [alumnos]="alumnos"></app-lista-alumnos>
 </main>

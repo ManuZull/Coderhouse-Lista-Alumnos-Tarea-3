@@ -20,9 +20,9 @@ export class ButtonOverviewExample {}
 })
 export class App {
   protected readonly title = signal('Alumnos');
-  alumnos: {nombre: string, apellido: string}[] = [];
+  alumnos: {nombre: string, apellido: string, email: string}[] = [];
 
-  agregarAlumno(alumno: {nombre: string, apellido: string}) {
+  agregarAlumno(alumno: {nombre: string, apellido: string, email: string}) {
     this.alumnos.push(alumno);
   }
 }
