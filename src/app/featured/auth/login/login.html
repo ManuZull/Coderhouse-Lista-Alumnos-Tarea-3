@@ -1,0 +1,27 @@
+<mat-card class="login-card">
+	<div class="brand">
+		<h2>Iniciar sesión</h2>		
+	</div>
+
+	<form [formGroup]="form" (ngSubmit)="submit()" class="login-form" novalidate>
+		<mat-form-field appearance="fill" class="full">
+			<mat-label>Correo electrónico</mat-label>
+			<input matInput placeholder="ejemplo@correo.com" formControlName="email" type="email" />			
+			<mat-error *ngIf="email?.hasError('required')">El email es obligatorio</mat-error>
+			<mat-error *ngIf="email?.hasError('email')">Formato de email inválido</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="fill" class="full">
+			<mat-label>Contraseña</mat-label>
+			<input matInput placeholder="Contraseña" formControlName="password" type="password" />
+			<mat-error *ngIf="password?.hasError('required')">La contraseña es obligatoria</mat-error>
+			<mat-error *ngIf="password?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+		</mat-form-field>
+
+		<div class="actions">
+			<button mat-flat-button color="primary" class="login-btn" [disabled]="submitting()">Iniciar sesión</button>
+		</div>
+	</form>
+
+	
+</mat-card>

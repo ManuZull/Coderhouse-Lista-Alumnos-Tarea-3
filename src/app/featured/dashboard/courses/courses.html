@@ -1,0 +1,8 @@
+<div class="courses-container">
+    <div class="form-section">
+        <app-courses-form [courseToEdit]="selectedCourse"></app-courses-form>
+    </div>
+    <div class="table-section">
+        <app-courses-table (editCourse)="handleEditCourse($event)"></app-courses-table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.courses-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.form-section {
+    flex: 1;
+}
+
+.table-section {
+    flex: 2;
+}

@@ -151,6 +151,38 @@
     margin-inline-start: 0.25rem;
   }
 
+  /* Estilos temporales */
+  .app-shell {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    width: 220px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    height: calc(100vh - 160px);
+    box-sizing: border-box;
+  }
+
+  .sidebar ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .sidebar li { padding: 0.6rem 0.8rem; border-radius: 6px; cursor: pointer; color: #0f172a; }
+  .sidebar li.active { background: #1e6cd3; color: white; font-weight: 600; }
+
+  .content-area { flex: 1; }
+
+  .login-area { display:flex; justify-content:center; align-items:center; padding: 2rem; }
+
+  /* Courses ABM layout */
+  .courses-abm { display:flex; gap: 1rem; }
+  .courses-abm .left-panel { flex: 1; }
+  .courses-abm .right-panel { width: 420px; }
+
   .social-links {
     display: flex;
     align-items: center;
@@ -182,20 +214,50 @@
   }
 </style>
 
-<app-navbar (alumnoAgregado)="agregarAlumno($event)"></app-navbar>
-<main class="main-contenedor">
-  <app-abm-alumnos (alumnoAgregado)="agregarAlumno($event)"></app-abm-alumnos>
-  <app-lista-alumnos ngSkipHydration [alumnos]="alumnos"></app-lista-alumnos>
-</main>
-<app-footer></app-footer>
+<!-- Autenticacion del Login -->
+<ng-container *ngIf="!isAuthenticated()">
+  <div class="login-area">
+    <app-login (loggedIn)="onLogin()"></app-login>
+  </div>
+</ng-container>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- Segunda parte del login -->
+<ng-container *ngIf="isAuthenticated()">
+  <app-navbar 
+    (alumnoAgregado)="agregarAlumno($event)"
+    (logout)="onLogout()"></app-navbar>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li [class.active]="selectedView() === 'alumnos'" (click)="select('alumnos')">Alumnos</li>
+          <li [class.active]="selectedView() === 'cursos'" (click)="select('cursos')">Cursos</li>
+         
+        </ul>
+      </nav>
+    </aside>
 
+    <main class="content-area">
+      <section *ngIf="selectedView() === 'alumnos'">
+        <app-abm-alumnos (alumnoAgregado)="agregarAlumno($event)"></app-abm-alumnos>
+        <app-lista-alumnos ngSkipHydration [alumnos]="alumnos"></app-lista-alumnos>
+      </section>
+
+      <section *ngIf="selectedView() === 'cursos'">
+        <div class="courses-abm">
+          <div class="left-panel">
+            <app-courses-table (editCourse)="onCourseEdit($event)"></app-courses-table>
+          </div>
+          <div class="right-panel">
+            <app-courses-form [courseToEdit]="selectedCourse"></app-courses-form>
+          </div>
+        </div>
+      </section>
+
+      
+    </main>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
 
 <router-outlet />

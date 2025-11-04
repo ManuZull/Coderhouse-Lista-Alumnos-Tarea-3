@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="agregarAlumno()" class="formulario-estudiantes">
 	<input formControlName="nombre" placeholder="Nombre" required class="input-estudiante" />
 	<input formControlName="apellido" placeholder="Apellido" required class="input-estudiante" />
-	<input formControlName="email" placeholder="Email" required class="input-estudiante" />
+	<input formControlName="email" placeholder="Email" required class="input-estudiante" />	
 	<button matButton="filled" color="primary" type="submit" [disabled]="form.invalid">Agregar</button>
 </form>
 

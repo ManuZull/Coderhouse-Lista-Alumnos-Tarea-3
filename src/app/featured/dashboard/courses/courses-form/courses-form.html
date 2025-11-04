@@ -1,0 +1,50 @@
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="formulario-estudiantes">
+  <h2 class="form-title">{{ formTitle }}</h2>
+  
+  <div *ngIf="isEditing" class="form-row">    
+    <label class="label-id">ID del Curso:</label>
+    <input [value]="courseId" disabled class="input-estudiante input-disabled" />
+  </div>
+
+  <div class="form-row">
+    <label>Título:</label>
+    <input formControlName="title" placeholder="Ingrese el título del curso" class="input-estudiante" />
+    <div class="error" *ngIf="inputInvalid('title')">{{ getError('title') }}</div>
+  </div>
+
+  <div class="form-row">
+    <label>Descripción:</label>
+    <textarea formControlName="description" placeholder="Ingrese la descripción del curso" 
+              class="input-estudiante textarea-descripcion"></textarea>
+    <div class="error" *ngIf="inputInvalid('description')">{{ getError('description') }}</div>
+  </div>
+
+  <div class="dates-container">
+    <div class="form-row">
+      <label>Fecha de inicio:</label>
+      <input type="date" formControlName="beginDate" class="input-estudiante" />
+    </div>
+    <div class="form-row">
+      <label>Fecha de fin:</label>
+      <input type="date" formControlName="endDate" class="input-estudiante" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label>Estado:</label>
+    <select formControlName="status" class="input-estudiante">
+      <option value="SCHEDULED">Programado</option>
+      <option value="STARTED">Iniciado</option>
+      <option value="FINISHED">Terminado</option>
+    </select>
+  </div>
+
+  <div class="actions">
+    <button type="submit" [disabled]="createForm.invalid" class="btn-personalizado">
+      {{ isEditing ? 'Guardar Cambios' : 'Crear Curso' }}
+    </button>
+    <button *ngIf="isEditing" type="button" (click)="cancelEdit()" class="btn-personalizado btn-cancelar">
+      Cancelar Edición
+    </button>
+  </div>
+</form>

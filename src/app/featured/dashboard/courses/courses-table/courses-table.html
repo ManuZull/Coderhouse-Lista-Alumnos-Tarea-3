@@ -1,0 +1,31 @@
+<div class="courses-page">
+  <div class="title-table">
+        <h2>Lista de Cursos</h2>
+  </div>
+
+  <table class="courses-table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of dataSource.data">
+        <td>{{ course.title }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.status }}</td>
+        <td class="actions-column">
+          <button mat-icon-button color="primary" (click)="onEditCourse(course.id)" matTooltip="Editar curso" aria-label="Editar curso">
+            <img src="../../../../img/edit.png" alt="Editar" class="icon-img" />
+          </button>
+          <button mat-icon-button color="warn" (click)="onDeleteCourse(course.id)" matTooltip="Eliminar curso" aria-label="Eliminar curso">
+            <img src="../../../../img/delete.png" alt="Eliminar" class="icon-img" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
