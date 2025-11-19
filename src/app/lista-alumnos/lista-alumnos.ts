@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,4 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ListaAlumnos {
   @Input() alumnos: {nombre: string, apellido: string, email: string}[] = [];
+  @Input() canManage = false;
+  @Output() deleteAlumno = new EventEmitter<number>();
+  @Output() editAlumno = new EventEmitter<number>();
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { Course, courseColumns } from '../../../../core/services/courses/model/Course';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -20,6 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class CoursesTable {
   displayedColumns: string[] = courseColumns;
   dataSource = new MatTableDataSource<Course>([]);
+  @Input() currentRole: string | null = null;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Output() editCourse = new EventEmitter<Course>();

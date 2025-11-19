@@ -91,7 +91,7 @@ export class CoursesPanel implements OnInit {
       ...this.form.value,
     };
 
-    // convert dates to ISO strings if Date objects
+  
     if (payload.beginDate instanceof Date) payload.beginDate = payload.beginDate.toISOString();
     if (payload.endDate instanceof Date) payload.endDate = payload.endDate.toISOString();
 

@@ -214,14 +214,14 @@
   }
 </style>
 
-<!-- Autenticacion del Login -->
+
 <ng-container *ngIf="!isAuthenticated()">
   <div class="login-area">
-    <app-login (loggedIn)="onLogin()"></app-login>
+    <app-login (loggedIn)="onLogin($event)"></app-login>
   </div>
 </ng-container>
 
-<!-- Segunda parte del login -->
+
 <ng-container *ngIf="isAuthenticated()">
   <app-navbar 
     (alumnoAgregado)="agregarAlumno($event)"
@@ -232,6 +232,8 @@
         <ul>
           <li [class.active]="selectedView() === 'alumnos'" (click)="select('alumnos')">Alumnos</li>
           <li [class.active]="selectedView() === 'cursos'" (click)="select('cursos')">Cursos</li>
+            <li [class.active]="selectedView() === 'inscripciones'" (click)="select('inscripciones')">Inscripciones</li>
+            <li *ngIf="currentUser() && currentUser()!.role === 'ADMIN'" [class.active]="selectedView() === 'usuarios'" (click)="select('usuarios')">Usuarios</li>
          
         </ul>
       </nav>
@@ -239,19 +241,27 @@
 
     <main class="content-area">
       <section *ngIf="selectedView() === 'alumnos'">
-        <app-abm-alumnos (alumnoAgregado)="agregarAlumno($event)"></app-abm-alumnos>
-        <app-lista-alumnos ngSkipHydration [alumnos]="alumnos"></app-lista-alumnos>
+        <app-abm-alumnos *ngIf="currentUser() && currentUser()!.role === 'ADMIN'" (alumnoAgregado)="agregarAlumno($event)"></app-abm-alumnos>
+        <app-lista-alumnos ngSkipHydration [alumnos]="alumnos" [canManage]="isAdmin()" (deleteAlumno)="onDeleteAlumno($event)" (editAlumno)="onEditAlumno($event)"></app-lista-alumnos>
       </section>
 
       <section *ngIf="selectedView() === 'cursos'">
         <div class="courses-abm">
           <div class="left-panel">
-            <app-courses-table (editCourse)="onCourseEdit($event)"></app-courses-table>
+            <app-courses-table (editCourse)="onCourseEdit($event)" [currentRole]="currentRole()"></app-courses-table>
           </div>
           <div class="right-panel">
-            <app-courses-form [courseToEdit]="selectedCourse"></app-courses-form>
+            <app-courses-form *ngIf="currentUser() && currentUser()!.role === 'ADMIN'" [courseToEdit]="selectedCourse"></app-courses-form>
           </div>
         </div>
+      </section>
+
+      <section *ngIf="selectedView() === 'usuarios'">
+        <app-admin-users *ngIf="currentUser() && currentUser()!.role === 'ADMIN'"></app-admin-users>
+      </section>
+
+      <section *ngIf="selectedView() === 'inscripciones'">
+        <app-inscripciones *ngIf="currentUser()" [currentUser]="currentUser()" [courses]="coursesList"></app-inscripciones>
       </section>
 
       

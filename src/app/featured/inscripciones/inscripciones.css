@@ -1,0 +1,135 @@
+
+:host {
+  display: block;
+}
+
+.inscripciones {
+  background: var(--surface, #fff);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--card-shadow, 0 6px 18px rgba(16,24,40,0.06));
+  color: #0f172a;
+  max-width: 980px;
+  margin: 0 auto 1rem auto;
+}
+
+.inscripciones h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--brand-blue, #1e6cd3);
+}
+
+.inscripciones p { 
+  color: var(--muted, #6b7280); 
+  margin: 0 0 1rem 0; 
+}
+.inscripciones table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-bottom: 1rem; 
+}
+.inscripciones thead th { 
+  text-align: left; 
+  padding: .6rem .8rem; 
+  color: var(--muted, #6b7280); 
+  font-weight: 600; 
+}
+.inscripciones tbody td { 
+  padding: .6rem .8rem; 
+  border-bottom: 1px solid #eef2f7; 
+}
+.inscripciones tbody tr:last-child td { 
+  border-bottom: none; 
+}
+.inscripciones label { 
+  display: block; 
+  margin: .4rem 0; 
+  font-size: 0.95rem; 
+  color: #0f172a; 
+}
+.inscripciones input[type="text"],
+.inscripciones input[type="email"],
+.inscripciones input[type="password"],
+.inscripciones select,
+.inscripciones .material-input,
+.inscripciones .material-select {
+  width: 100%;
+  padding: .7rem .95rem;
+  border-radius: 10px;
+  border: 1px solid #e6edf8;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: .25rem;
+  font-size: 1rem;
+  min-height: 48px;
+  transition: box-shadow .14s ease, border-color .14s ease;
+}
+
+.inscripciones input:focus, .inscripciones select:focus, .inscripciones .material-input:focus, .inscripciones .material-select:focus {
+  outline: none;
+  border-color: var(--brand-blue, #1e6cd3);
+  box-shadow: 0 10px 24px rgba(30,108,211,0.12);
+}
+
+
+.inscripciones .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .7rem 1.1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.inscripciones .btn-primary {
+  background: linear-gradient(180deg, var(--brand-blue, #1e6cd3), var(--brand-blue-700, #155ab0));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(30,108,211,0.18);
+}
+.inscripciones .btn-ghost {
+  background: transparent;
+  color: var(--brand-blue, #1e6cd3);
+  border: 1px solid color-mix(in srgb, var(--brand-blue, #1e6cd3) 14%, transparent);
+}
+.inscripciones .btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.inscripciones .btn:active {
+  transform: translateY(1px);
+}
+
+.inscripciones button {
+  font-size: .95rem;
+}
+
+
+.inscripciones .actions {
+  display: flex;
+  gap: .5rem;
+}
+.inscripciones .actions button {
+  padding: .45rem .7rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .95rem;
+}
+.inscripciones .actions .edit {
+  background: linear-gradient(180deg, var(--brand-blue, #1e6cd3), var(--brand-blue-700, #155ab0));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(30,108,211,0.12);
+}
+.inscripciones .actions .delete {
+  background: #fff0f0;
+  color: #b91c1c;
+  border: 1px solid #fee2e2;
+}
+
+.inscripciones button[  disabled], .inscripciones .btn[disabled] 
+{ opacity: .6; 
+  cursor: not-allowed; 
+}
+

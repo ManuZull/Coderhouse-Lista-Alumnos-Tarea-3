@@ -1,0 +1,165 @@
+:host { 
+  display: block; 
+}
+
+.admin-users {
+  background: var(--surface, #fff);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--card-shadow, 0 6px 18px rgba(16,24,40,0.06));
+  color: #0f172a;
+  max-width: 980px;
+  margin: 0 auto 1rem auto;
+}
+
+.admin-users h3 { 
+  margin: 0 0 0.5rem 0; 
+  color: var(--brand-blue, #1e6cd3); 
+}
+.admin-users h4 { 
+  margin: 0.5rem 0; 
+  color: #0f172a; 
+}
+
+/* --- Tabla --- */
+.admin-users table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-bottom: 1rem; 
+}
+.admin-users thead th { 
+  text-align: left; 
+  padding: .6rem .8rem; 
+  color: var(--muted, #6b7280); 
+  font-weight: 700; 
+  font-size: .95rem; 
+}
+.admin-users tbody td { 
+  padding: .6rem .8rem; 
+  border-bottom: 1px solid #eef2f7; 
+  vertical-align: middle; 
+}
+.admin-users tbody tr:hover { 
+  background: color-mix(in srgb, var(--brand-blue, #1e6cd3) 3%, transparent); 
+}
+
+.admin-users .form { 
+  margin-top: 1rem; 
+  display: flex; 
+  flex-direction: column; 
+  gap: .5rem; 
+}
+.admin-users label { 
+  display: flex; 
+  flex-direction: column; 
+  font-size: 1rem; 
+  color: #0f172a; 
+}
+
+.admin-users input[type="text"], 
+.admin-users input[type="password"], 
+.admin-users select {
+  padding: .75rem .9rem; 
+  border-radius: 10px; 
+  border: 1px solid #e6edf8; 
+  background: #fff; 
+  margin-top: .3rem; 
+  font-size: 1rem; 
+  min-height: 44px; 
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+
+.admin-users .material-input,
+.admin-users .material-select {
+  width: 100%;
+  padding: .7rem .95rem;
+  border-radius: 10px;
+  border: 1px solid #e6edf8;
+  background: #fff;
+  font-size: 1rem;
+  min-height: 48px; 
+  box-sizing: border-box;
+  transition: box-shadow .14s ease, border-color .14s ease, transform .06s ease;
+}
+
+.admin-users .material-input:focus,
+.admin-users .material-select:focus {
+  outline: none;
+  border-color: var(--brand-blue, #1e6cd3);
+  box-shadow: 0 10px 24px rgba(30,108,211,0.12);
+}
+
+.admin-users input[type="text"]:focus, 
+.admin-users input[type="password"]:focus, 
+.admin-users select:focus {
+  outline: none; 
+  border-color: var(--brand-blue, #1e6cd3); 
+  box-shadow: 0 6px 18px rgba(30,108,211,0.12);
+}
+
+.admin-users .form div { 
+  display: flex; 
+  gap: .5rem; 
+  margin-top: .5rem; 
+}
+
+
+
+
+.admin-users .btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: .5rem; 
+  padding: .7rem 1.1rem; 
+  border-radius: 10px; 
+  border: none; 
+  cursor: pointer; 
+  font-weight: 700; 
+  font-size: 1rem; 
+}
+.admin-users .btn-primary { 
+  background: linear-gradient(180deg, var(--brand-blue, #1e6cd3), var(--brand-blue-700, #155ab0)); 
+  color: #fff; 
+  box-shadow: 0 10px 24px rgba(30,108,211,0.18); 
+}
+.admin-users .btn-ghost { 
+  background: transparent; 
+  color: var(--brand-blue, #1e6cd3); 
+  border: 1px solid color-mix(in srgb, var(--brand-blue, #1e6cd3) 14%, transparent); 
+}
+.admin-users .btn-danger { 
+  background: #ef4444; 
+  color: #fff; 
+}
+
+.admin-users .btn:active { 
+  transform: translateY(1px); 
+}
+
+.admin-users button { 
+  font-size: .95rem; 
+}
+
+/* Botones de Editar y Borrar*/
+.admin-users .actions { 
+  display: flex; 
+  gap: .5rem; 
+}
+.admin-users .actions button { 
+  padding: .45rem .7rem; 
+  border-radius: 8px; 
+  font-weight: 600; 
+  font-size: .95rem; 
+}
+.admin-users .actions .edit { 
+  background: linear-gradient(180deg, var(--brand-blue, #1e6cd3), var(--brand-blue-700, #155ab0)); 
+  color: #fff; 
+  box-shadow: 0 8px 20px rgba(30,108,211,0.12); 
+}
+.admin-users .actions .delete { 
+  background: #fff0f0; 
+  color: #b91c1c; 
+  border: 1px solid #fee2e2; 
+}
