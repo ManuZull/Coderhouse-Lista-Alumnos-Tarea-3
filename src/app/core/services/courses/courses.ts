@@ -35,8 +35,6 @@ export class CoursesService {
   }
 
   updateCourse(course: Course) {
-
-    //Fechas sean objetos de tipo Date
     course.beginDate = course.beginDate ? new Date(course.beginDate) : course.beginDate;
     course.endDate = course.endDate ? new Date(course.endDate) : course.endDate;
     const updatedCourses = this.courses.map((c) => (c.id === course.id ? course : c));

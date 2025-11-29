@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="navbar-brand">
+      <h1>Sistema de Gestión</h1>
+    </div>
+    <div class="navbar-actions" *ngIf="authService.currentUser()">
+      <span class="user-display">{{ authService.currentUser()!.username }}</span>
+      <button mat-button class="logout-btn" (click)="onLogout()">
+
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+</nav>
